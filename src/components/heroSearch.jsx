@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BossStats from './bossStats'
 import { searchPlayer } from '../api/searchAPI'
 
@@ -49,13 +49,17 @@ const HeroSearch = () => {
             />
           </div>
           <div className="py-6">
-            {playerStats && (
-              <BossStats
-                totalLevel={playerStats.skills.overall.level}
-                clueScrolls={playerStats.clues.all.score}
-                bossKills={calculateTotalBossKills(playerStats.bosses)}
-              />
-            )}
+            <BossStats
+              totalLevel={
+                playerStats ? playerStats.skills.overall.level : '???'
+              }
+              clueScrolls={playerStats ? playerStats.clues.all.score : '???'}
+              bossKills={
+                playerStats
+                  ? calculateTotalBossKills(playerStats.bosses)
+                  : '???'
+              }
+            />
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 import Header from './components/header'
-import HeroSearch from './components/heroSearch'
+import HomePage from './pages/homePage'
 const App = () => {
   return (
     <>
       <Header />
-      <HeroSearch />
+      <HomePage />
     </>
   )
 }
